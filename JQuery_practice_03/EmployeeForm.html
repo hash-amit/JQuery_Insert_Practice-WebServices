@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+        function INSERT() {
+            $.ajax({
+                url: 'EmpService.asmx/Insert',
+                type: 'post',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                data: "{A : '" + $("#Name_txt").val() + "', B : '" + $("#Age_txt").val() + "'}",
+                success: function () {
+                    alert('Success!');
+                },
+                error: function () {
+                    alert('Something went wrong!');
+                }
+            });
+        }
+    </script>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Name : </td>
+            <td><input id="Name_txt" type="text" /></td>
+        </tr>
+
+        <tr>
+            <td>Age : </td>
+            <td><input id="Age_txt" type="text" /></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="button" id="Save_btn" value="Save" onclick="INSERT()" /></td>
+        </tr>
+    </table>
+</body>
+</html>
